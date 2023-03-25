@@ -1,0 +1,28 @@
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+    .tarjeta {
+        border: 1px solid #cc562d;
+        background: #cc562d;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        padding: 30px 20px;
+        border-radius: 10px;
+        color: white;
+        text-decoration: none;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .h1 {
+        background-color: hotpink;
+        border: #cc562d;
+    }
+    .h2 {
+        margin-bottom: 0;
+    }
+}
