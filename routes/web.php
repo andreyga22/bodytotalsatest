@@ -18,10 +18,6 @@ use App\Http\Controllers\TransactionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::resource("actives", ActiveController::class);
 Route::resource("clients", ClientController::class);
 Route::resource("employees", EmployeeController::class);

@@ -22,7 +22,7 @@ class ActiveController extends Controller
      */
     public function create()
     {
-        //
+        return view('actives.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class ActiveController extends Controller
      */
     public function show(Active $active)
     {
-        //
+        return view("actives.show", ['actives' => $active]);
     }
 
     /**
