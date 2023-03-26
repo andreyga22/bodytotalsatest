@@ -37,16 +37,16 @@
                 <td>
                     <div class="row">
                         <div class="col-sm-auto">
-                            <button type="button" class="btn btn-primary btn-accion" href="{{ route('actives.show', $active) }}">Mostrar</button>
+                            <a type="button" class="btn btn-primary btn-accion" href="{{ route('actives.show', $active) }}">Mostrar</a>
                         </div>
                         <div class="col-sm-auto">
-                            <button type="button" class="btn btn-primary btn-accion" href="{{ route('actives.edit', $active) }}">Editar</button>
+                            <a type="button" class="btn btn-primary btn-accion" href="{{ route('actives.edit', $active) }}">Editar</a>
                         </div>
                         <div class="col-sm-auto">
                             <form action=" {{ route("actives.destroy", $active) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-primary btn-accion">Eliminar</button>
+                                <input type="submit" class="btn btn-danger btn-accion" value="Eliminar"/>
                             </form>
                         </div>
                     </div>

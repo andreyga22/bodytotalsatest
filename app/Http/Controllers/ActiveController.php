@@ -30,7 +30,16 @@ class ActiveController extends Controller
      */
     public function store(StoreActiveRequest $request)
     {
-        //
+        $fields = $request->validate([
+            'name' => 'required|string',
+            'brand' => 'required|string',
+            'price' => 'required|numeric',
+            'weight' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'status' => 'required|string'
+        ]);
+        Active::create($fields);
+        return redirect()->route('actives.create')->with('success', "El activo: " . $fields['name'] . " ha sido agregado correctamente.");
     }
 
     /**
@@ -62,6 +71,7 @@ class ActiveController extends Controller
      */
     public function destroy(Active $active)
     {
-        //
+        $active->delete();
+        return redirect()->route('actives.index');
     }
 }
