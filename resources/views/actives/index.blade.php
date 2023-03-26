@@ -7,8 +7,7 @@
 
     <div class="row">
         <div class="col-sm-auto">
-            <button type="button" class="btn btn-primary btn-create"><a
-                href="{{ route('actives.create') }}"></a>Agregar</button>
+             <a type="button" class="btn btn-primary btn-create" href="{{ route('actives.create') }}">Agregar</a>
         </div>
     </div>
 
