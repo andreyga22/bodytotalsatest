@@ -19,7 +19,7 @@ use App\Http\Controllers\TransactionController;
 */
 Route::get('/', function () {
     return view('index');
-});
+})->name("index");
 
 
 Route::resource("actives", ActiveController::class);
