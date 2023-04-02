@@ -19,20 +19,17 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Transaccion</a>
+                    <a class="nav-link" href="{{ route('transactions.index') }}">Transacciones</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('actives.index') }}">Activos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Clientes</a>
+                    <a class="nav-link" href="{{ route('clients.index') }}">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Empleados</a>
+                    <a class="nav-link" href="{{ route('employees.index') }}">Empleados</a>
                 </li>
             </ul>
         </div>

@@ -20,7 +20,7 @@
                 <a href="{{ route('clients.index') }}">
                     <img src="https://www.sydle.com/blog/assets/post/retencao-de-clientes-614c921fa9d8415db4764f86/retencao-de-clientes.jpg?w=960" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Manejo de clientes</p>
+                        <p class="card-text card-text-formatting">Manejo de clientes</p>
                     </div>
                 </a>
             </div>

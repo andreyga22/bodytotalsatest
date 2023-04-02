@@ -22,7 +22,7 @@ class ActiveController extends Controller
      */
     public function create()
     {
-        return view('actives.create');
+        return view('actives.create', ['active' => new Active()]);
     }
 
     /**
@@ -38,8 +38,9 @@ class ActiveController extends Controller
             'quantity' => 'required|numeric',
             'status' => 'required|string'
         ]);
+//        return $fields;
         Active::create($fields);
-        return redirect()->route('actives.create')->with('success', "El activo: " . $fields['name'] . " ha sido agregado correctamente.");
+        return redirect()->route('actives.create')->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente.");
     }
 
     /**
@@ -47,7 +48,7 @@ class ActiveController extends Controller
      */
     public function show(Active $active)
     {
-        return view("actives.show", ['actives' => $active]);
+        return view("actives.show", ['active' => $active]);
     }
 
     /**
@@ -55,7 +56,7 @@ class ActiveController extends Controller
      */
     public function edit(Active $active)
     {
-        //
+        return view('actives.edit', ['active' => $active]);
     }
 
     /**
@@ -63,7 +64,17 @@ class ActiveController extends Controller
      */
     public function update(UpdateActiveRequest $request, Active $active)
     {
-        //
+        $fields = $request->validate([
+            'name' => 'required|string',
+            'brand' => 'required|string',
+            'price' => 'required|numeric',
+            'weight' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'status' => 'required|string'
+        ]);
+
+        $active->update($fields);
+        return redirect()->route('actives.edit', $active)->with('success', 'El activo: ' . $fields['name'] . ', ha sido actualizado.');
     }
 
     /**
