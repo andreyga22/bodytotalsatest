@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Active;
 use App\Models\Employee;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
@@ -22,7 +23,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee.create', ['employee' => new Active()]);
+
     }
 
     /**
@@ -30,7 +32,18 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployeeRequest $request)
     {
-        //
+        $fields = $request->validate([
+            'firstName'=>'required|string',
+            'secondName'=>'required|string',
+            'firstLastName'=>'required|string',
+            'secondLastName'=>'required|string',
+            'age'=>'required|numeric',
+            'nationalId'=>'required|numeric',
+            'status'=>'required|string'
+        ]);
+
+        Employee::create($fields);
+        return redirect()->route('employee.create')->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
     }
 
     /**
@@ -38,7 +51,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view("employee.show", ['employee' =>$employee]);
     }
 
     /**
@@ -46,7 +59,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('employee.edit', ['employee' => $employee]);
     }
 
     /**
@@ -54,7 +67,18 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
-        //
+        $fields = $request->validate([
+            'firstName'=>'required|string',
+            'secondName'=>'required|string',
+            'firstLastName'=>'required|string',
+            'secondLastName'=>'required|string',
+            'age'=>'required|numeric',
+            'nationalId'=>'required|numeric',
+            'status'=>'required|string'
+        ]);
+
+        $employee::update($fields);
+        return redirect()->route('employee.edit', $employee)->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
     }
 
     /**
@@ -62,6 +86,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+        return redirect()->route('employee.index');
     }
 }
