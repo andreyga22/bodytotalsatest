@@ -23,7 +23,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee.create', ['employee' => new Active()]);
+        return view('employees.create', ['employee' => new Active()]);
 
     }
 
@@ -43,7 +43,7 @@ class EmployeeController extends Controller
         ]);
 
         Employee::create($fields);
-        return redirect()->route('employee.create')->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
+        return redirect()->route('employees.create')->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
     }
 
     /**
@@ -51,7 +51,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        return view("employee.show", ['employee' =>$employee]);
+        return view("employees.show", ['employee' =>$employee]);
     }
 
     /**
@@ -59,7 +59,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        return view('employee.edit', ['employee' => $employee]);
+        return view('employees.edit', ['employee' => $employee]);
     }
 
     /**
@@ -78,7 +78,7 @@ class EmployeeController extends Controller
         ]);
 
         $employee::update($fields);
-        return redirect()->route('employee.edit', $employee)->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
+        return redirect()->route('employees.edit', $employee)->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
     }
 
     /**
@@ -87,6 +87,6 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect()->route('employee.index');
+        return redirect()->route('employees.index');
     }
 }
