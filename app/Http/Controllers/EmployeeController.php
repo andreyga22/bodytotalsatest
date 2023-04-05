@@ -77,7 +77,7 @@ class EmployeeController extends Controller
             'status'=>'required|string'
         ]);
 
-        $employee::update($fields);
+        $employee->update($fields);
         return redirect()->route('employees.edit', $employee)->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
     }
 

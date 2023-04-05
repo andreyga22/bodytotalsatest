@@ -14,10 +14,8 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">FirtName</th>
-            <th scope="col">SecondName</th>
-            <th scope="col">FirstLastName</th>
-            <th scope="col">SecondLastName</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
             <th scope="col">Age</th>
             <th scope="col">NationalId</th>
             <th scope="col">Status</th>
@@ -27,10 +25,8 @@
         <tbody>
         @foreach($employees as $employee)
             <tr>
-                <td>{{$employee->firstName}}</td>
-                <td>{{$employee->secondName}}</td>
-                <td>{{$employee->firstLastName}}</td>
-                <td>{{$employee->secondLastName}}</td>
+                <td>{{$employee->firstName}} {{$employee->secondName}}</td>
+                <td>{{$employee->firstLastName}} {{$employee->secondLastName}}</td>
                 <td>{{$employee->age}}</td>
                 <td>{{$employee->nationalId}}</td>
                 <td>{{$employee->status}}</td>

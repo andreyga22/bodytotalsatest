@@ -34,5 +34,5 @@
 </div>
 
 <div class="row justify-content-center">
-    <button type="submit" class="btn btn-primary col-3"></button>
+    <button type="submit" class="btn btn-primary col-3">Aceptar</button>
 </div>
