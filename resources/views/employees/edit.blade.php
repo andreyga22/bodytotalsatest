@@ -14,7 +14,7 @@
     <form action="{{ route('employees.update', $employee) }}" method="POST">
         @csrf
         @method('PATCH')
-        @include('actives.form')
+        @include('employees.form')
 
     </form>
 
