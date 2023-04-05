@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-sm-auto">
-            <a type="button" class="btn btn-primary btn-create" href="{{route('employee.create')}}">Agregar</a>
+            <a type="button" class="btn btn-primary btn-create" href="{{route('employees.create')}}">Agregar</a>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         <tbody>
         @foreach($employees as $employee)
             <tr>
-                <td>{{$employee->firsName}}</td>
+                <td>{{$employee->firstName}}</td>
                 <td>{{$employee->secondName}}</td>
                 <td>{{$employee->firstLastName}}</td>
                 <td>{{$employee->secondLastName}}</td>
@@ -38,10 +38,10 @@
                 <td>
                     <div class="row">
                         <div class="col-sm-auto">
-                            <a type="button" class="btn btn-primary btn-accion" href="{{route('employee.show', $employee)}}">Mostrar</a>
+                            <a type="button" class="btn btn-primary btn-accion" href="{{route('employees.show', $employee)}}">Mostrar</a>
                         </div>
                         <div class="col-sm-auto">
-                            <a type="button" class="btn btn-primary btn-accion" href="{{ route('employee.edit', $employee) }}">Editar</a>
+                            <a type="button" class="btn btn-primary btn-accion" href="{{ route('employees.edit', $employee) }}">Editar</a>
                         </div>
                         <div class="col-sm-auto">
                             <form action=" {{ route("employees.destroy", $employee) }}" method="POST">
