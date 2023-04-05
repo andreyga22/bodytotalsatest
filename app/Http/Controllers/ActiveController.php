@@ -74,7 +74,7 @@ class ActiveController extends Controller
         ]);
 
         $active->update($fields);
-        return redirect()->route('actives.edit', $active)->with('success', 'El activo: ' . $fields['name'] . ', ha sido actualizado.');
+        return redirect()->route('actives.edit', $active)->with('success', "El activo: " . $fields['name'] . ", ha sido actualizado.");
     }
 
     /**

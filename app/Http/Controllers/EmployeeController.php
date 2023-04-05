@@ -78,7 +78,7 @@ class EmployeeController extends Controller
         ]);
 
         $employee->update($fields);
-        return redirect()->route('employees.edit', $employee)->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
+        return redirect()->route('employees.edit', $employee)->with('success', "El empleado: " . $fields['firstName'] . ", ha sido agregado correctamente");
     }
 
     /**
