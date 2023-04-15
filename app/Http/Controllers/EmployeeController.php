@@ -43,7 +43,7 @@ class EmployeeController extends Controller
         ]);
 
         Employee::create($fields);
-        return redirect()->route('employees.create')->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente");
+        return redirect()->route('employees.create')->with('success', "El empleado: " . $fields['firstName'] . ", ha sido agregado correctamente");
     }
 
     /**
