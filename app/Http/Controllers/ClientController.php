@@ -22,7 +22,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create', ['client' => new Client()]);
     }
 
     /**
@@ -30,38 +30,62 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
-        //
+        $fields = $request->validate([
+            'firstName'=>'required|string',
+            'secondName'=>'required|string',
+            'firstLastName'=>'required|string',
+            'secondLastName'=>'required|string',
+            'age'=>'required|numeric',
+            'nationalId'=>'required|numeric',
+            'weight'=> 'numeric',
+            'height'=>'numeric',
+            'status'=>'required|string'
+        ]);
+//        return $fields;
+        Client::create($fields);
+        return redirect()->route('actives.create')->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente.");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show(Active $active)
     {
-        //
+        return view("actives.show", ['active' => $active]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Client $client)
+    public function edit(Active $active)
     {
-        //
+        return view('actives.edit', ['active' => $active]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(UpdateActiveRequest $request, Active $active)
     {
-        //
+        $fields = $request->validate([
+            'name' => 'required|string',
+            'brand' => 'required|string',
+            'price' => 'required|numeric',
+            'weight' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'status' => 'required|string'
+        ]);
+
+        $active->update($fields);
+        return redirect()->route('actives.edit', $active)->with('success', "El activo: " . $fields['name'] . ", ha sido actualizado.");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $client)
+    public function destroy(Active $active)
     {
-        //
+        $active->delete();
+        return redirect()->route('actives.index');
     }
 }
