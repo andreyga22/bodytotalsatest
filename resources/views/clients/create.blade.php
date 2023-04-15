@@ -1,0 +1,37 @@
+@extends('layout')
+<h1> Hola esto es una prueba</h1>
+@section('title', 'Clientes')
+@section('content')
+
+
+    <h1 class="tituloPrincipal">Agregar Cliente</h1>
+    <div class="row mb-5">
+        <div class="col-auto">
+            <a class="btn btn-secondary" href="{{route('clients.index') }}">Regresar</a>
+        </div>
+    </div>
+
+    <form action="{{route('clients.store')}}" method="POST">
+        @csrf
+
+        @include('clients.form')
+
+    </form>
+
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible mt-4 fade show" role="alert">
+                {{$error}}
+                <a type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+            </div>
+        @endforeach
+    @endif
+
+    @if(session()->has('success'))
+        <div class="alert alert-primary alert-dismissible mt-4 fade show" role="alert">
+            {{session()->get('success')}}
+            <a type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+        </div>
+    @endif
+@endsection
+
