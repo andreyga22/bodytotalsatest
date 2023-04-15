@@ -17,7 +17,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellidos</th>
             <th scope="col">Age</th>
-            <th scope="col">NationalId</th>
+            <th scope="col">Cedula</th>
             <th scope="col">Status</th>
             <th scope="col">Acciones</th>
         </tr>
