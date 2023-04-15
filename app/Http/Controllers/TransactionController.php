@@ -22,7 +22,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        return view('transactions.create', ['transaction' => new Transaction()]);
     }
 
     /**
@@ -30,7 +30,14 @@ class TransactionController extends Controller
      */
     public function store(StoreTransactionRequest $request)
     {
-        //
+        $fields = $request->validate([
+            'type' => 'required|string',
+            'price' => 'required|numeric',
+            'date' => 'required|date'
+        ]);
+//        return $fields;
+        Transaction::create($fields);
+        return redirect()->route('transactions.create')->with('success', "La transaccion: " . $fields['date'] . ", ha sido completado correctamente.");
     }
 
     /**
@@ -38,7 +45,7 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        //
+        return view("transactions.show", ['transaction' => $transaction]);
     }
 
     /**
@@ -46,7 +53,7 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
+        return view('transactions.edit', ['transaction' => $transaction]);
     }
 
     /**
@@ -54,7 +61,14 @@ class TransactionController extends Controller
      */
     public function update(UpdateTransactionRequest $request, Transaction $transaction)
     {
-        //
+        $fields = $request->validate([
+            'type' => 'required|string',
+            'price' => 'required|numeric',
+            'date' => 'required|date'
+        ]);
+
+        $transaction->update($fields);
+        return redirect()->route('transactions.edit', $transaction)->with('success', 'La transaccion: ' . $fields['date'] . ', ha sido actualizada.');
     }
 
     /**
@@ -62,6 +76,7 @@ class TransactionController extends Controller
      */
     public function destroy(Transaction $transaction)
     {
-        //
+        $transaction->delete();
+        return redirect()->route('transactions.index');
     }
 }
