@@ -11,15 +11,15 @@
 </div>
 <div class="mb-3">
     <label for="price" class="form-label">Precio</label>
-    <input required value=" {{ old('name', $active->price) }}" type="number" class="form-control" id="price" name="price">
+    <input required value="{{old('name', $active->price)}}" type="number" class="form-control" id="price" name="price">
 </div>
-<div class="mb-3" >
+<div class="mb-3">
     <label for="weight" class="form-label">Peso</label>
-    <input required value=" {{ old('name', $active->weight) }}" type="number" class="form-control" id="weight" name="weight">
+    <input required value="{{old('name', $active->weight)}}" type="number" class="form-control" id="weight" name="weight">
 </div>
 <div class="mb-3">
     <label for="quantity" class="form-label">Cantidad</label>
-    <input required value=" {{ old('name', $active->quantity) }}" type="number" class="form-control" id="quantity" name="quantity">
+    <input required value="{{old('name', $active->quantity)}}" type="number" class="form-control" id="quantity" name="quantity">
 </div>
 <div class="mb-3">
     <label for="status" class="form-label">Estado</label>
@@ -28,4 +28,6 @@
 <div class="row justify-content-center">
     <button type="submit" class="btn btn-primary col-3">Aceptar</button>
 </div>
+
+
 
