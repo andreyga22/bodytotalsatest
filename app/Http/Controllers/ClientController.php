@@ -43,49 +43,51 @@ class ClientController extends Controller
         ]);
 //        return $fields;
         Client::create($fields);
-        return redirect()->route('actives.create')->with('success', "El activo: " . $fields['name'] . ", ha sido agregado correctamente.");
+        return redirect()->route('client.create')->with('success', "El client: " . $fields['name'] . ", ha sido agregado correctamente.");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Active $active)
+    public function show(Client $client)
     {
-        return view("actives.show", ['active' => $active]);
+        return view("client.show", ['client' => $client]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Active $active)
+    public function edit(Client $client)
     {
-        return view('actives.edit', ['active' => $active]);
+        return view('clients.edit', ['client' => $client]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateActiveRequest $request, Active $active)
+    public function update(UpdateClientRequest $request, Client $client)
     {
         $fields = $request->validate([
-            'name' => 'required|string',
-            'brand' => 'required|string',
-            'price' => 'required|numeric',
-            'weight' => 'required|numeric',
-            'quantity' => 'required|numeric',
-            'status' => 'required|string'
+            'firstName'=>'required|string',
+            'secondName'=>'required|string',
+            'firstLastName'=>'required|string',
+            'secondLastName'=>'required|string',
+            'age'=>'required|numeric',
+            'nationalId'=>'required|numeric',
+            'weight'=> 'numeric',
+            'height'=>'numeric',
+            'status'=>'required|string'
         ]);
-
-        $active->update($fields);
-        return redirect()->route('actives.edit', $active)->with('success', "El activo: " . $fields['name'] . ", ha sido actualizado.");
+        $client->update($fields);
+        return redirect()->route('clients.edit', $client)->with('success', "El client: " . $fields['name'] . ", ha sido actualizado.");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Active $active)
+    public function destroy(Client $client)
     {
-        $active->delete();
-        return redirect()->route('actives.index');
+        $client->delete();
+        return redirect()->route('clients.index');
     }
 }
