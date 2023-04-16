@@ -1,5 +1,5 @@
 @extends('layout')
-<h1> Hola esto es una prueba</h1>
+
 @section('title', 'Clientes')
 @section('content')
 

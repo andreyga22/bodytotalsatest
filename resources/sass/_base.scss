@@ -1,11 +1,7 @@
 
 .btn-accion {
     margin-bottom: 5px;
-}
-
-.navbar {
-    margin-left: 10px !important;
-    margin-right: 10px !important;
+    width: 100px;
 }
 
 .tituloPrincipal {
@@ -21,12 +17,10 @@
     height: 190px;
 }
 
-
-a:link {
+a:link:not(.btn-primary, .btn-primary, .btn-secondary) {
     text-decoration: none;
     color: black !important;
 }
-
 
 a:visited {
     text-decoration: none;
@@ -41,3 +35,47 @@ a:hover {
 a:active {
     text-decoration: none;
 }
+
+.btn-primary, .btn-primary:visited {
+    background-color: #473BF0 !important;
+    color: white !important;
+}
+
+.text-primary {
+    color: #473BF0 !important;
+}
+
+.btn-danger, .btn-danger:visited {
+    background-color: #D64933 !important;
+    color: white !important;
+}
+
+.btn-secondary, .btn-secondary:visited  {
+    background-color: #7C7C7C !important;
+    color: white !important;
+}
+
+.navbar-primary, .bg-primary {
+    background-color: #473BF0 !important;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+}
+
+.navbar-brand, .nav-link{
+    color: white !important;
+}
+
+footer {
+    display: flex;
+    position:fixed;bottom:0;left:0;right:0;height:30px;
+    align-items: start;
+}
+
+.footer_text {
+    margin: auto;
+}
+
+
+

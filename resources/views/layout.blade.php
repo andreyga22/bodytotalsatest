@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary nav-fill w-100">
         <a class="navbar-brand" href="{{ route('index') }}">Body Total S.A.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,6 +38,10 @@
     <div class="container">
         @yield('content')
     </div>
+
+    <footer>
+        <H5 class="footer_text">Body Total S.A Copyright 2023</H5>
+    </footer>
 
 </div>
 
