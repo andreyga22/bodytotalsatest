@@ -43,7 +43,7 @@ class ClientController extends Controller
         ]);
 //        return $fields;
         Client::create($fields);
-        return redirect()->route('client.create')->with('success', "El client: " . $fields['name'] . ", ha sido agregado correctamente.");
+        return redirect()->route('clients.create')->with('success', "El client: " . $fields['firtName'] . ", ha sido agregado correctamente.");
     }
 
     /**
@@ -79,7 +79,7 @@ class ClientController extends Controller
             'status'=>'required|string'
         ]);
         $client->update($fields);
-        return redirect()->route('clients.edit', $client)->with('success', "El client: " . $fields['name'] . ", ha sido actualizado.");
+        return redirect()->route('clients.edit', $client)->with('success', "El client: " . $fields['firstName'] . ", ha sido actualizado.");
     }
 
     /**

@@ -25,7 +25,7 @@
         </thead>
         <tbody>
         @foreach($clients as $client)
-            <tr>`
+            <tr>
                 <td>{{$client->firstName}} {{$client->secondName}}</td>
                 <td>{{$client->firstLastName}} {{$client->secondLastName}}</td>
                 <td>{{$client->age}}</td>
