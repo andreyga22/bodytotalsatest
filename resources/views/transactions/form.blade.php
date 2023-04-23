@@ -1,9 +1,13 @@
 <?php
 ?>
 
-<div class="mb-3">
+<div class="mb-4">
     <label for="type" class="form-label">Tipo</label>
-    <input required value=" {{ old('type', $transaction->type) }}" type="text" class="form-control" id="type" name="type">
+    <select name="type" id="type" required class="form-control">
+        <option value="matricula" selected>Matricula</option>
+        <option value="mensualidad">Mensualidad</option>
+        <option value="venta">Venta</option>
+    </select>
 </div>
 <div class="mb-3">
     <label for="price" class="form-label">Precio</label>
@@ -30,7 +34,22 @@
     </select>
 </div>
 
+
+<script lang="javascript">
+    let type = document.getElementById("type");
+    type.addEventListener('change', function handleChange(event) {
+        if (event.target.value === "venta") {
+            console.log("venta");
+            let boton = document.getElementById("boton");
+            boton.innerHTML = "Siguiente";
+        } else {
+            let boton = document.getElementById("boton");
+            boton.innerHTML = "Aceptar";
+        }
+    });
+</script>
+
 <div class="row justify-content-center">
-    <button type="submit" class="btn btn-primary col-3">Aceptar</button>
+    <button type="submit" class="btn btn-primary col-3" id="boton">Aceptar</button>
 </div>
 

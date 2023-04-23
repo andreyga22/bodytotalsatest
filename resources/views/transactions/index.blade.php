@@ -39,13 +39,13 @@
                         <div class="col-sm-auto">
                             <a type="button" class="btn btn-primary btn-accion" href="{{ route('transactions.edit', $transaction) }}">Editar</a>
                         </div>
-                        <div class="col-sm-auto">
-                            <form action=" {{ route("transactions.destroy", $transaction) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" class="btn btn-danger btn-accion" value="Eliminar"/>
-                            </form>
-                        </div>
+{{--                        <div class="col-sm-auto">--}}
+{{--                            <form action=" {{ route("transactions.destroy", $transaction) }}" method="POST">--}}
+{{--                                @csrf--}}
+{{--                                @method('DELETE')--}}
+{{--                                <input type="submit" class="btn btn-danger btn-accion" value="Eliminar"/>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                     </div>
                 </td>
             </tr>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Active;
+use App\Models\Detail;
 use App\Models\Employee;
 use App\Models\Client;
 use App\Models\Transaction;
@@ -37,11 +39,23 @@ class TransactionController extends Controller
         $fields = $request->validate([
             'type' => 'required|string',
             'price' => 'required|numeric',
-            'date' => 'required|date'
+            'date' => 'required|date',
+            "idClient" => 'required|string',
+            "idEmployee" => 'required|string',
         ]);
-//        return $fields;
-        Transaction::create($fields);
-        return redirect()->route('transactions.create')->with('success', "La transaccion: " . $fields['date'] . ", ha sido completado correctamente.");
+        //Venta ->> enviar al crear de detalles
+        if ($fields['type'] === "venta") {
+            //echo $fields->id;
+            $newID = Transaction::create($fields)->id;
+            return redirect()->route('details.create')->with('newId', $newID);
+//            return redirect()->route('details.create', ['transaction', $fields]);
+            //return view('details.create', ['details' => new Transaction(), 'transaction' => $fields]);
+            //return $fields;
+        } else {
+            Transaction::create($fields);
+//            return redirect()->route('transactions.create')->with('success', "La transaccion: " . $fields['date'] . ", ha sido completado correctamente.");
+            return redirect()->route('transactions.create')->with('success', "La transaccion: " . $fields['date'] . ", ha sido completado correctamente.");
+        }
     }
 
     /**
@@ -49,7 +63,11 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        return view("transactions.show", ['transaction' => $transaction]);
+        $employees = Employee::get();
+        $clients = Client::get();
+        $details = Detail::get();
+        $actives = Active::get();
+        return view("transactions.show", ['transaction' => $transaction, 'employees' => $employees, 'clients' => $clients, 'details' => $details, 'actives' => $actives]);
     }
 
     /**
@@ -57,7 +75,9 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        return view('transactions.edit', ['transaction' => $transaction]);
+        $clients = Client::get();
+        $employees = Employee::get();
+        return view('transactions.edit', ['transaction' => $transaction, 'employees' => $employees, 'clients' => $clients]);
     }
 
     /**
@@ -68,7 +88,9 @@ class TransactionController extends Controller
         $fields = $request->validate([
             'type' => 'required|string',
             'price' => 'required|numeric',
-            'date' => 'required|date'
+            'date' => 'required|date',
+            'idClient' => 'required|string',
+            'idEmployee' => 'required|string',
         ]);
 
         $transaction->update($fields);
@@ -80,7 +102,7 @@ class TransactionController extends Controller
      */
     public function destroy(Transaction $transaction)
     {
-        $transaction->delete();
-        return redirect()->route('transactions.index');
+//        $transaction->delete();
+//        return redirect()->route('transactions.index');
     }
 }

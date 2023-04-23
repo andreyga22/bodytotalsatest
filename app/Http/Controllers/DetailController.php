@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Active;
 use App\Models\Detail;
 use App\Http\Requests\StoreDetailRequest;
 use App\Http\Requests\UpdateDetailRequest;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\DB;
 
 class DetailController extends Controller
 {
@@ -14,7 +17,9 @@ class DetailController extends Controller
     public function index()
     {
         $details = Detail::get();
-        return view('details.index', ['details' => $details]);
+        $transactions = Transaction::get();
+        $actives = Active::get();
+        return view('details.index', ['details' => $details, 'transactions' => $transactions, 'actives' => $actives,]);
     }
 
     /**
@@ -22,7 +27,9 @@ class DetailController extends Controller
      */
     public function create()
     {
-        //
+        $transactions = Transaction::get();
+        $actives = Active::get();
+        return view('details.create', ['detail' => new Detail(), 'transactions' => $transactions, 'actives' => $actives]);
     }
 
     /**
@@ -30,7 +37,19 @@ class DetailController extends Controller
      */
     public function store(StoreDetailRequest $request)
     {
-        //
+        $fields = $request->validate([
+            "idActive" => 'required|string',
+            "idTransaction" => 'required|string',
+            "quantity" => 'required|string',
+        ]);
+
+
+
+
+        Detail::create($fields);
+        DB::statement("UPDATE actives SET quantity = (quantity - " . $fields['quantity'] .") where id = " . $fields['idActive'] . ";");
+        return redirect()->route('details.create')->with('success', 'El detalle ' . $fields['idActive'] . '-' . $fields['idTransaction']  . ' ha sido agregado');
+
     }
 
     /**
@@ -38,7 +57,7 @@ class DetailController extends Controller
      */
     public function show(Detail $detail)
     {
-        //
+        return view('details.show', ['detail' => $detail]);
     }
 
     /**
@@ -46,7 +65,9 @@ class DetailController extends Controller
      */
     public function edit(Detail $detail)
     {
-        //
+        $actives = Active::get();
+        $transactions = Transaction::get();
+        return view('details.edit', ['detail' => $detail, 'actives' => $actives, 'transactions' => $transactions]);
     }
 
     /**
@@ -54,7 +75,15 @@ class DetailController extends Controller
      */
     public function update(UpdateDetailRequest $request, Detail $detail)
     {
-        //
+        $fields = $request->validate([
+            "idActive" => 'required|string',
+            "idTransaction" => 'required|string',
+            "quantity" => 'required|string',
+        ]);
+
+        $detail->update($fields);
+        DB::statement("UPDATE actives SET quantity = (quantity - " . $fields['quantity'] .") where id = " . $fields['idActive'] . ";");
+        return redirect()->route('details.edit', $detail)->with('success', 'El detalle #' . $fields['idActive'] . '-' . $fields['idTransaction']  . ' ha sido actualizado');
     }
 
     /**
@@ -62,6 +91,7 @@ class DetailController extends Controller
      */
     public function destroy(Detail $detail)
     {
-        //
+        $detail->delete();
+        return redirect()->route('details.index');
     }
 }

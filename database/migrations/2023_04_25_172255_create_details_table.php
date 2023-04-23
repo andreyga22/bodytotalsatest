@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
-
+            $table->integer("quantity");
+            $table->foreignId("idTransaction")->references("id")->on("transactions");
+            $table->foreignId("idActive")->references("id")->on("actives");
             $table->timestamps();
         });
     }

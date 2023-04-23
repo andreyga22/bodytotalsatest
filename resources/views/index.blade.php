@@ -45,6 +45,16 @@
                 </a>
             </div>
         </div>
+{{--        <div class="col mt-lg-5 ms-5 mb-4 tarjeta">--}}
+{{--            <div class="card" href="{{ route('details.index') }}" style="width: 18rem;">--}}
+{{--                <a href="{{ route('details.index') }}">--}}
+{{--                    <img src="https://utel.mx/blog/wp-content/uploads/2014/03/shutterstock_1300997151.jpg" class="card-img-top" alt="...">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <p class="card-text">Manejo de detalles</p>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
     </div>
 

@@ -43,7 +43,7 @@ class ClientController extends Controller
         ]);
 //        return $fields;
         Client::create($fields);
-        return redirect()->route('clients.create')->with('success', "El client: " . $fields['firtName'] . ", ha sido agregado correctamente.");
+        return redirect()->route('clients.create')->with('success', "El cliente: " . $fields['firstName'] . ", ha sido agregado correctamente.");
     }
 
     /**
