@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
+use App\Models\Client;
 use App\Models\Transaction;
 use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
@@ -22,7 +24,9 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        return view('transactions.create', ['transaction' => new Transaction()]);
+        $employees = Employee::get();
+        $clients = Client::get();
+        return view('transactions.create', ['transaction' => new Transaction(), 'employees' => $employees, 'clients' => $clients]);
     }
 
     /**

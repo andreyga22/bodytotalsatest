@@ -9,4 +9,8 @@ class Employee extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public function transactions() {
+        return $this->hasMany("App\Models\Transaction", "idTransaction");
+    }
 }

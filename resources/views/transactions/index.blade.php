@@ -17,7 +17,9 @@
             <th scope="col">ID</th>
             <th scope="col">Tipo</th>
             <th scope="col">Precio</th>
-            <th scope="col">Date</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Empleado</th>
+            <th scope="col">Cliente</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +29,8 @@
                 <td>{{ $transaction->type }}</td>
                 <td>{{ $transaction->price }}</td>
                 <td>{{ $transaction->date }}</td>
+                <td>{{ $transaction->employees->firstName }}</td>
+                <td>{{ $transaction->employees->lastName }}</td>
                 <td>
                     <div class="row">
                         <div class="col-sm-auto">

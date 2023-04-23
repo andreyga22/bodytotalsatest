@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string("type");
             $table->double("price");
             $table->date("date");
+            $table->foreignId("idClient")->references("id")->on("clients");
+            $table->foreignId("idEmployee")->references("id")->on("employees");
             $table->timestamps();
         });
     }
