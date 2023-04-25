@@ -18,7 +18,7 @@
             <th scope="col">Tipo</th>
             <th scope="col">Precio</th>
             <th scope="col">Fecha</th>
-            <th scope="col">Empleado</th>
+{{--            <th scope="col">Empleado</th>--}}
             <th scope="col">Cliente</th>
         </tr>
         </thead>
@@ -29,7 +29,7 @@
                 <td>{{ $transaction->type }}</td>
                 <td>{{ $transaction->price }}</td>
                 <td>{{ $transaction->date }}</td>
-                <td>{{ $transaction->employees->firstName . " " . $transaction->employees->lastName }}</td>
+{{--                <td>{{ $transaction->employees->firstName . " " . $transaction->employees->lastName }}</td>--}}
                 <td>{{ $transaction->clients->firstName . " " . $transaction->clients->lastName }}</td>
                 <td>
                     <div class="row">

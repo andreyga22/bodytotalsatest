@@ -16,22 +16,22 @@
         <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Apellidos</th>
-            <th scope="col">Años</th>
+{{--            <th scope="col">Años</th>--}}
             <th scope="col">Nacionalidad</th>
-            <th scope="col">Peso</th>
-            <th scope="col">Altura</th>
+{{--            <th scope="col">Peso</th>--}}
+{{--            <th scope="col">Altura</th>--}}
             <th scope="col">Estado</th>
         </tr>
         </thead>
         <tbody>
         @foreach($clients as $client)
             <tr>
-                <td>{{$client->firstName}} {{$client->secondName}}</td>
-                <td>{{$client->firstLastName}} {{$client->secondLastName}}</td>
-                <td>{{$client->age}}</td>
+                <td>{{$client->firstName}} </td>
+                <td>{{$client->firstLastName}} </td>
+{{--                <td>{{$client->age}}</td>--}}
                 <td>{{$client->nationalId}}</td>
-                <td>{{$client->weight}}</td>
-                <td>{{$client->height}}</td>
+{{--                <td>{{$client->weight}}</td>--}}
+{{--                <td>{{$client->height}}</td>--}}
                 <td>{{$client->status}}</td>
 
                 <td>

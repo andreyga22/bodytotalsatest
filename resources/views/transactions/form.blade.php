@@ -4,18 +4,19 @@
 <div class="mb-4">
     <label for="type" class="form-label">Tipo</label>
     <select name="type" id="type" required class="form-control">
-        <option value="matricula" selected>Matricula</option>
-        <option value="mensualidad">Mensualidad</option>
-        <option value="venta">Venta</option>
+        <option value="matricula" {{ $transaction->type === "matricula" ? 'selected' :  ''}} >Matricula</option>
+        <option value="mensualidad" {{ $transaction->type === "mensualidad" ? 'selected' :  ''}}>Mensualidad</option>
+        <option value="venta" {{ $transaction->type === "venta" ? 'selected' :  ''}}>Venta</option>
     </select>
 </div>
 <div class="mb-3">
     <label for="price" class="form-label">Precio</label>
-    <input required value=" {{ old('price', $transaction->price) }}" type="number" class="form-control" id="price" name="price">
+    <input required value="{{ old('price', $transaction->price) }}" type="number" class="form-control" id="price" name="price">
 </div>
-<div class="mb-3" >
+
+<div class="mb-3">
     <label for="date" class="form-label">Fecha</label>
-    <input required value=" {{ old('date', $transaction->date) }}" type="date" class="form-control" id="date" name="date">
+    <input required value="{{ old('date', $transaction->date) }}" type="date" class="form-control" id="date" name="date">
 </div>
 <div class="mb-4">
     <label for="idClient" class="form-label">Cliente</label>
