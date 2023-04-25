@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col justify-content-center">
             <h1 class="text-primary">Informacion del Cliente:</h1>
-            <p><strong>Nombre:</strong>{{$client->firstName}} {{$client->secondName}}</p>
+            <p><strong>Nombre: </strong>{{$client->firstName}} {{$client->secondName}}</p>
             <p><strong>Apellidos:</strong> {{ $client->firstLastName}} {{$client->secondLastName}}</p>
             <p><strong>Edad:</strong> {{ $client->age }}</p>
             <p><strong>Cedula:</strong> {{ $client->nationalId }}</p>

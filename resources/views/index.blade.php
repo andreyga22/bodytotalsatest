@@ -4,7 +4,7 @@
 @section('content')
 
     <h1 class="tituloPrincipal mb-5">Body Total S.A</h1>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
         <div class="col mt-lg-5 ms-5 mb-4 tarjeta">
             <div class="card" style="width: 18rem;">
                 <a href="{{ route('actives.index') }}">

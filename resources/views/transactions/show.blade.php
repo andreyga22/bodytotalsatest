@@ -65,7 +65,7 @@
 
 
 
-    <div class="row mt-5">
+    <div class="row mt-5 mb-5">
         <div class="col-auto">
             <a class="btn btn-secondary" href="{{ route('transactions.index') }}">Regresar</a>
         </div>

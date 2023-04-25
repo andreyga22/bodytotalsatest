@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table mb-5">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -29,8 +29,8 @@
                 <td>{{ $transaction->type }}</td>
                 <td>{{ $transaction->price }}</td>
                 <td>{{ $transaction->date }}</td>
-                <td>{{ $transaction->employees->firstName }}</td>
-                <td>{{ $transaction->employees->lastName }}</td>
+                <td>{{ $transaction->employees->firstName . " " . $transaction->employees->lastName }}</td>
+                <td>{{ $transaction->clients->firstName . " " . $transaction->clients->lastName }}</td>
                 <td>
                     <div class="row">
                         <div class="col-sm-auto">

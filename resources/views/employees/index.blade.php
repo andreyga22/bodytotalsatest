@@ -16,9 +16,9 @@
         <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Apellidos</th>
-            <th scope="col">Age</th>
+            <th scope="col">Edad</th>
             <th scope="col">Cedula</th>
-            <th scope="col">Status</th>
+            <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
         </tr>
         </thead>

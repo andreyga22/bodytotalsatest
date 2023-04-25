@@ -6,13 +6,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <title>@yield('title')</title>
 </head>
 <body>
 <div class="app">
     <nav class="navbar navbar-expand-lg navbar-primary bg-primary nav-fill w-100">
-        <a class="navbar-brand" href="{{ route('index') }}">Body Total S.A.</a>
+        <a class="navbar-brand" href="{{ route('home') }}">Body Total S.A.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,6 +35,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('details.index') }}">Detalles</a>
                 </li>
+                <li class="nav-item dropdown md-3 sm-offset-9">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-primary" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -42,9 +60,9 @@
         @yield('content')
     </div>
 
-    <footer>
-        <H5 class="footer_text">Body Total S.A Copyright 2023</H5>
-    </footer>
+{{--    <footer class="mt-5">--}}
+{{--        <H5 class="footer_text mt-5">Body Total S.A Copyright 2023</H5>--}}
+{{--    </footer>--}}
 
 </div>
 

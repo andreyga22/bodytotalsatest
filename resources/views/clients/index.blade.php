@@ -17,10 +17,10 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellidos</th>
             <th scope="col">Años</th>
-            <th scope="col">Nationalidad</th>
+            <th scope="col">Nacionalidad</th>
             <th scope="col">Peso</th>
             <th scope="col">Altura</th>
-            <th scope="col">Status</th>
+            <th scope="col">Estado</th>
         </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
                 <td>{{$client->firstLastName}} {{$client->secondLastName}}</td>
                 <td>{{$client->age}}</td>
                 <td>{{$client->nationalId}}</td>
-                <td>{{$client->weght}}</td>
+                <td>{{$client->weight}}</td>
                 <td>{{$client->height}}</td>
                 <td>{{$client->status}}</td>
 

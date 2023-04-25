@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col justify-content-center">
             <h1 class="text-primary">Informacion del empleado:</h1>
-            <p><strong>Nombre:</strong>{{$employee->firstName}} {{$employee->secondName}}</p>
+            <p><strong>Nombre: </strong>{{$employee->firstName}} {{$employee->secondName}}</p>
             <p><strong>Apellidos:</strong> {{ $employee->firstLastName}} {{$employee->secondLastName}}</p>
             <p><strong>Edad:</strong> {{ $employee->age }}</p>
             <p><strong>Cedula:</strong> {{ $employee->nationalId }}</p>

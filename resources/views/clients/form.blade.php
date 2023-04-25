@@ -43,7 +43,7 @@
 
 
 <div class="mb-3">
-    <label for="status" class="form-label">Estado:</label>
+    <label for="status" class="form-label">Estado</label>
     <input required value="{{old('name', $client->status)}}" type="text" class="form-control" id="name" name="status">
 </div>
 

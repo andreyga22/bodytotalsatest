@@ -17,13 +17,22 @@ use App\Http\Controllers\TransactionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Route::get('/', function () {
+//    return view('index');
+//})->name("index");
+
 Route::get('/', function () {
-    return view('index');
-})->name("index");
+    return view('auth.login');
+})->name("login");
+
+Auth::routes();
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource("actives", ActiveController::class);
+    Route::resource("clients", ClientController::class);
+    Route::resource("employees", EmployeeController::class);
+    Route::resource("details", DetailController::class);
+    Route::resource("transactions", TransactionController::class);
+});
 
 
-Route::resource("actives", ActiveController::class);
-Route::resource("clients", ClientController::class);
-Route::resource("employees", EmployeeController::class);
-Route::resource("details", DetailController::class);
-Route::resource("transactions", TransactionController::class);
